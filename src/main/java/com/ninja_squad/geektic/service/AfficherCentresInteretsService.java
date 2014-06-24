@@ -14,15 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ninja_squad.geektic.DAO.CentreInteretDao;
 import com.ninja_squad.geektic.beans.CentreInteret;
 
-/**
- * Fake service just to test that everything works fine
- * 
- * @author JB Nizet
- */
 @RestController
 @Transactional
-@RequestMapping("/api/hello")
-public class HelloService {
+@RequestMapping("/api/afficherCentreInteret")
+public class AfficherCentresInteretsService {
 
 	@Autowired
 	protected CentreInteretDao cid;
@@ -39,6 +34,5 @@ public class HelloService {
 			System.out.println(centreInteret.getNom());
 		}
 		return centreInterets;
-		// return new HelloMessage();
 	}
 }

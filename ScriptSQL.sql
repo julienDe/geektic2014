@@ -10,6 +10,7 @@ Id Integer NOT NULL IDENTITY,
 Nom varchar(30),
 Prenom varchar(30),
 Mail varchar(30),
+Sexe varchar(1),
 CouleurCheveux varchar(30),
 CouleurYeux varchar(30),
 Taille Integer,
@@ -40,8 +41,8 @@ VALUES ( 'Vélo');
 
 
 INSERT INTO "PUBLIC"."GEEK"
-( "NOM", "PRENOM", "MAIL", "COULEURCHEVEUX", "COULEURYEUX", "TAILLE", "POIDS" )
-VALUES ( 'Deydier', 'Julien', 'juliendeydier@gmail.com', 'Brun', 'Marron, Vert', 170,60 );
+( "NOM", "PRENOM", "MAIL","SEXE", "COULEURCHEVEUX", "COULEURYEUX", "TAILLE", "POIDS" )
+VALUES ( 'Deydier', 'Julien', 'juliendeydier@gmail.com','M', 'Brun', 'Marron, Vert', 170,60 );
 
 INSERT INTO "PUBLIC"."GEEK_CENTRE_INTERET"
 ( "IDGEEK", "IDCENTREINTERET" )
@@ -54,3 +55,4 @@ VALUES (0 ,2 );
 INSERT INTO "PUBLIC"."GEEK_CENTRE_INTERET"
 ( "IDGEEK", "IDCENTREINTERET" )
 VALUES (0 ,3 );
+

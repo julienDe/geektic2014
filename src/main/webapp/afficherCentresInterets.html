@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html ng-app="geektic">
+    <head>
+        <title>Geektic</title>
+    </head>
+    <body ng-controller="AfficherCentreInteret">
+    
+    	<div ng-repeat="centreInteret in centreInterets">
+			{{centreInteret.nom}}
+			</br>	
+		</div>
+		<a href="/index.html">  Retour </a>
+
+        <script src="/js/angular.js"></script>
+        <script src="/js/angular-route.js"></script>
+        <script src="/js/app.js"></script>
+    </body>
+</html>

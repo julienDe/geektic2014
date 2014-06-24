@@ -5,9 +5,27 @@
         <title>Geektic</title>
     </head>
     <body ng-controller="HelloCtrl">
-        <h1>{{ helloMessage.message }}</h1>
-        <h1>{{ centreInteret.nom }}</h1>
-
+		
+        <a href="/afficherCentresInterets.html">  Afficher les centres d'interet </a>
+        <br />
+        <a href="/afficherLesGeeks.html">  Afficher les geeks </a>
+        
+        Rechercher des geeks : 
+        <form method="GET" ng-submit="afficherLesGeeks()">
+			Nom  : <input type="text" ng-model="criteria.nom" value="" /> 
+			<br />Sexe : 
+			<SELECT  ng-model="criteria.sexe">
+				<OPTION value="M">M
+				<OPTION value="F">F
+			</SELECT>
+		   	<input type="submit" value="Go..."/>
+		</form>
+		
+		<div ng-repeat="geek in geeks">
+			{{geek.nom}}
+			</br>	
+		</div>
+		
         <script src="/js/angular.js"></script>
         <script src="/js/angular-route.js"></script>
         <script src="/js/app.js"></script>

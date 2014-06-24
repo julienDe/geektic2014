@@ -1,15 +1,43 @@
 package com.ninja_squad.geektic.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "GEEK")
 public class Geek {
 
+	@Id
+	@Column(name = "ID")
 	private int id;
+
+	@Column(name = "NOM")
 	private String nom;
+
+	@Column(name = "PRENOM")
 	private String prenom;
+
+	@Column(name = "MAIL")
 	private String mail;
+
+	@Column(name = "COULEURCHEVEUX")
 	private String couleurCheveux;
+
+	@Column(name = "COULEURYEUX")
 	private String couleurYeux;
+
+	@Column(name = "TAILLE")
 	private int taille;
+
+	@Column(name = "SEXE")
+	private String sexe;
+
+	@Column(name = "POIDS")
 	private int poids;
+
+	// private List<CentreInteret> centreInteret;
 
 	public int getId() {
 		return id;
