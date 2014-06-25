@@ -24,7 +24,6 @@ public class GeeksDao {
 	}
 
 	public List<Geek> finByNom(String nom) {
-
 		String jpql = "select s from Geek as s where lower(s.nom)=:nom";
 
 		TypedQuery<Geek> query = em.createQuery(jpql, Geek.class);
@@ -32,7 +31,7 @@ public class GeeksDao {
 	}
 
 	public List<Geek> findByCentreInteret(CentreInteret centreInteret) {
-		String jpql = "select g from Geek as g left join fetch g.centresInteret inner join g.centresInteret as ci where ci=:centreInteret";
+		String jpql = "select distinct g from Geek as g left join fetch g.centresInteret inner join g.centresInteret as ci where ci=:centreInteret";
 		TypedQuery<Geek> query = em.createQuery(jpql, Geek.class);
 		return query.setParameter("centreInteret", centreInteret)
 				.getResultList();
