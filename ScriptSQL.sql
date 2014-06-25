@@ -43,6 +43,9 @@ VALUES ( 'Vélo');
 INSERT INTO "PUBLIC"."GEEK"
 ( "NOM", "PRENOM", "MAIL","SEXE", "COULEURCHEVEUX", "COULEURYEUX", "TAILLE", "POIDS" )
 VALUES ( 'Deydier', 'Julien', 'juliendeydier@gmail.com','M', 'Brun', 'Marron, Vert', 170,60 );
+INSERT INTO "PUBLIC"."GEEK"
+( "NOM", "PRENOM", "MAIL","SEXE", "COULEURCHEVEUX", "COULEURYEUX", "TAILLE", "POIDS" )
+VALUES ( 'Jouve', 'Julien', 'juliendeydier@gmail.com','M', 'Brun', 'Marron, Vert', 170,60 );
 
 INSERT INTO "PUBLIC"."GEEK_CENTRE_INTERET"
 ( "IDGEEK", "IDCENTREINTERET" )

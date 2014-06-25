@@ -9,22 +9,33 @@
         <a href="/afficherCentresInterets.html">  Afficher les centres d'interet </a>
         <br />
         <a href="/afficherLesGeeks.html">  Afficher les geeks </a>
+        <br />
         
         Rechercher des geeks : 
         <form method="GET" ng-submit="afficherLesGeeks()">
 			Nom  : <input type="text" ng-model="criteria.nom" value="" /> 
 			<br />Sexe : 
 			<SELECT  ng-model="criteria.sexe">
-				<OPTION value="M">M
-				<OPTION value="F">F
+				<OPTION value=""></OPTION>
+				<OPTION value="M">M</OPTION>
+				<OPTION value="F">F</OPTION>
 			</SELECT>
-		   	<input type="submit" value="Go..."/>
+			
+			<select ng-model="criteria.centreInteret" ng-options="t.id as t.nom for t in test"></select>
+			<br />
+		   	<input type="submit" value="Rechercher un Geek"/>
 		</form>
 		
-		<div ng-repeat="geek in geeks">
-			{{geek.nom}}
-			</br>	
+
+		<div ng-repeat="geek in geeks">		
+			{{geek.nom}} <button ng-click="afficherDetail(geek)">Afficher les details du geek</button>
+			</br>		
 		</div>
+		
+		<!--  <div ng-repeat="centreInteret in geek.centresInteret">
+				{{centreInteret.nom}}
+				<br />
+			</div>-->
 		
         <script src="/js/angular.js"></script>
         <script src="/js/angular-route.js"></script>

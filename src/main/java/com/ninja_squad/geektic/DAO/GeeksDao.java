@@ -8,6 +8,7 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
+import com.ninja_squad.geektic.beans.CentreInteret;
 import com.ninja_squad.geektic.beans.Geek;
 
 @Repository
@@ -30,12 +31,25 @@ public class GeeksDao {
 		return query.setParameter("nom", nom.toLowerCase()).getResultList();
 	}
 
-	public List<Geek> findBysexe(String sexe) {
+	public List<Geek> findByCentreInteret(CentreInteret centreInteret) {
+		String jpql = "select g from Geek as g left join fetch g.centresInteret inner join g.centresInteret as ci where ci=:centreInteret";
+		TypedQuery<Geek> query = em.createQuery(jpql, Geek.class);
+		return query.setParameter("centreInteret", centreInteret)
+				.getResultList();
+	}
 
+	public List<Geek> findBysexe(String sexe) {
 		String jpql = "select s from Geek as s where lower(s.sexe)=:sexe";
 
 		TypedQuery<Geek> query = em.createQuery(jpql, Geek.class);
 		return query.setParameter("sexe", sexe.toLowerCase()).getResultList();
+	}
+
+	public List<Geek> findById(Long id) {
+		String jpql = "select s from Geek as s where s.id=:id";
+
+		TypedQuery<Geek> query = em.createQuery(jpql, Geek.class);
+		return query.setParameter("id", id).getResultList();
 	}
 
 }

@@ -1,8 +1,14 @@
 package com.ninja_squad.geektic.beans;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -37,10 +43,28 @@ public class Geek {
 	@Column(name = "POIDS")
 	private int poids;
 
-	// private List<CentreInteret> centreInteret;
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "GEEK_CENTRE_INTERET", joinColumns = { @JoinColumn(name = "IDGEEK", referencedColumnName = "ID") }, inverseJoinColumns = { @JoinColumn(name = "IDCENTREINTERET", referencedColumnName = "ID") })
+	public Set<CentreInteret> centresInteret;
 
 	public int getId() {
 		return id;
+	}
+
+	public String getSexe() {
+		return sexe;
+	}
+
+	public void setSexe(String sexe) {
+		this.sexe = sexe;
+	}
+
+	public Set<CentreInteret> getCentresInteret() {
+		return centresInteret;
+	}
+
+	public void setCentresInteret(Set<CentreInteret> centresInteret) {
+		this.centresInteret = centresInteret;
 	}
 
 	public void setId(int id) {
